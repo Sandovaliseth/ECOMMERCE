@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "pedidos")
@@ -16,30 +18,24 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String numero;
+	@Temporal(TemporalType.DATE)
 	private Date fechaCreacion;
-	private Date fechaRecibido;
-	private double total;
 	
 	//Relacion con usuario
 	@ManyToOne
-	private Cliente usuario;
+	private Cliente cliente;
 	
 	//Relacion con detalle pedido
 	@OneToOne(mappedBy = "pedido")
 	private DetallePedido detalle;
 	
 	public Pedido() {
-	
 	}
 
-	public Pedido(Integer id, String numero, Date fechaCreacion, Date fechaRecibido, double total) {
+	public Pedido(Integer id, Date fechaCreacion) {
 		super();
 		this.id = id;
-		this.numero = numero;
 		this.fechaCreacion = fechaCreacion;
-		this.fechaRecibido = fechaRecibido;
-		this.total = total;
 	}
 
 	public Integer getId() {
@@ -50,14 +46,6 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
 	public Date getFechaCreacion() {
 		return fechaCreacion;
 	}
@@ -66,28 +54,12 @@ public class Pedido {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-	public Date getFechaRecibido() {
-		return fechaRecibido;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setFechaRecibido(Date fechaRecibido) {
-		this.fechaRecibido = fechaRecibido;
-	}
-
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
-	}
-
-	public Cliente getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Cliente usuario) {
-		this.usuario = usuario;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public DetallePedido getDetalle() {
@@ -100,7 +72,6 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaRecibido="
-				+ fechaRecibido + ", total=" + total + "]";
+		return "Pedido [id=" + id + ", fechaCreacion=" + fechaCreacion + "]";
 	}
 }

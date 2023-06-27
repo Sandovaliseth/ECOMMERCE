@@ -21,7 +21,7 @@ public class Producto {
 	private int cantidad;
 	
 	@ManyToOne
-	private Cliente usuario;
+	private Cliente cliente;
 	
 	//constructores
 	public Producto() {
@@ -29,8 +29,7 @@ public class Producto {
 	}
 	
 	//métodos
-	public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad,
-			Cliente usuario) {
+	public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad, Cliente cliente) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -38,7 +37,7 @@ public class Producto {
 		this.imagen = imagen;
 		this.precio = precio;
 		this.cantidad = cantidad;
-		this.usuario = usuario;
+		this.cliente = cliente;
 	}
 
 	public Integer getId() {
@@ -89,17 +88,17 @@ public class Producto {
 		this.cantidad = cantidad;
 	}
 
-	public Cliente getUsuario() {
-		return usuario;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setUsuario(Cliente usuario) {
-		this.usuario = usuario;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
-				+ ", precio=" + precio + ", cantidad=" + cantidad + "]";
+				+ ", precio=" + precio + ", cantidad=" + cantidad + ", cliente=" + cliente + "]";
 	}
 }

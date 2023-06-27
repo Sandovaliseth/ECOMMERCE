@@ -3,6 +3,8 @@ package com.ecommerce.models.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ public class ClienteServiceImpl implements IClienteService{
 	private ICliente IClienteDao;
 
 	@Override
+	@Transactional
 	public Cliente save(Cliente cliente) {
 		return IClienteDao.save(cliente);
 	}

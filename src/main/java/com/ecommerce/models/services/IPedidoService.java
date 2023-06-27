@@ -11,6 +11,5 @@ public interface IPedidoService {
 	Pedido save (Pedido pedido);
 	List<Pedido> findAll();
 	Optional<Pedido> findById(Integer Id);
-	String generarNumeroPedido();
 	List<Pedido> findByCliente (Cliente cliente);
 }

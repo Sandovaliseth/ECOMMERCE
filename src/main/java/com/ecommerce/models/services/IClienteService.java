@@ -12,5 +12,5 @@ public interface IClienteService {
 	public void delete(Integer Id);
 	//Lista clientes
 	public List<Cliente> findAll();
-	public Optional<Cliente> findById(Integer Id);
+	public Optional<Cliente> findById(Integer id);
 }

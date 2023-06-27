@@ -1,22 +1,16 @@
 /* Tabla productos */
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Televisor Samsung', 'Resolucion: 1080p, LCD 50 pulgadas', 'default.jpg', 1240000, 340);
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Portátil', 'Procesador: AMD RYZEN5', 'default.jpg', 2600000, 50);
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Medias', 'Tallas: 35, 36, 37, 38, 39, 40', 'default.jpg', 8000, 40);
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Jugos', 'De diferentes sabores', 'default.jpg', 7500, 20);
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Mouse', 'Gamer', 'default.jpg', 15000, 70);
-INSERT INTO productos (nombre, descripcion, imagen, precio, cantidad) VALUES('Nevera', 'Tienes 515 Litros de capacidad para adaptar todos los víveres que tu y tu familia necesitan en un solo lugar', 'default.jpg', 760000, 35);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(1, 'Televisor Samsung', 'Resolucion: 1080p- LCD 50', 'default.jpg', 1240000, 340);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(2, 'Portátil', 'Procesador: AMD RYZEN5', 'default.jpg', 2600000, 50);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(3, 'Medias', 'Tallas: 35, 36, 37, 38, 39, 40', 'default.jpg', 8000, 40);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(4, 'Jugos', 'De diferentes sabores', 'default.jpg', 7500, 20);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(5, 'Mouse', 'Gamer', 'default.jpg', 15000, 70);
+INSERT INTO productos (id, nombre, descripcion, imagen, precio, cantidad) VALUES(6, 'Nevera', 'Tienes 515 Litros de capacidad', 'default.jpg', 760000, 35);
 
-/* Tabla usuarios o clientes */
-INSERT INTO usuarios (nombre, apellido, email, direccion, telefono) VALUES('Liseth', 'Sandoval', 'liseth@correo.com', 'Cll 12 #32-18', 6483296);
-INSERT INTO usuarios (nombre, apellido, email, direccion, telefono) VALUES('Marly', 'Pabon', 'marlyp@correo.com', 'Cll 23 #34-9', 6483296);
-INSERT INTO usuarios (nombre, apellido, email, direccion, telefono) VALUES('Brayan', 'Ochoa', '8choa@correo.com', 'Cll 10 #15-20', 6483296);
-INSERT INTO usuarios (nombre, apellido, email, direccion, telefono) VALUES('Maybrith', 'Sandoval', 'sandovalm@correo.com', 'Cll 5 #18-25', 6483296);
+/* Tabla usuarios */
+INSERT INTO usuarios (id, usuario, contrasena, confirmarContrasena, rol) VALUES (1, 'admin', '123', '123', 'ADMINISTRADOR');
+INSERT INTO usuarios (id, usuario, contrasena, confirmarContrasena, rol) VALUES (2, 'martha12', '1234', '1234', 'USUARIO');
+INSERT INTO usuarios (id, usuario, contrasena, confirmarContrasena, rol) VALUES (3, 'Juan', '0123', '0123', 'USUARIO');
 
-/* Tabla pedido */
-INSERT INTO pedidos (numero, fechaCreacion, fechaRecibido, total) VALUES('1038', '23/07/22', '23/07/22', 32000);
-INSERT INTO pedidos (numero, fechaCreacion, fechaRecibido, total) VALUES('1039', '08/04/22', '23/07/22', 58000);
-INSERT INTO pedidos (numero, fechaCreacion, fechaRecibido, total) VALUES('1040', '14/11/12', '23/07/22', 35000);
-
-/*Creamos los usuario del sistema*/
-INSERT INTO roles (nombre) VALUES ('ROLE_USER');
-INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
+/* Tabla clientes */
+INSERT INTO clientes (id, nombre, apellido, email, direccion, telefono, id_usuario) VALUES(1, 'Juan', 'Lopez', 'jlopez@correo.com', 'Cll 23 #18-9', 64832960, 2);
+INSERT INTO clientes (id, nombre, apellido, email, direccion, telefono, id_usuario) VALUES(2, 'Martha', 'Martinez', 'martinez@correo.com', 'Cll 12 #32-18', 6483296, 3);

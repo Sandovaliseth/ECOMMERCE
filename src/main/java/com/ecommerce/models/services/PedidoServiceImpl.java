@@ -1,6 +1,5 @@
 package com.ecommerce.models.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,38 +26,15 @@ public class PedidoServiceImpl implements IPedidoService{
 		return IPedidoDao.findAll();
 	}
 	
-	//Mirar el ultimo numero de la orden
-	public String generarNumeroPedido() {
-		int numero=0;
-		String numeroConcatenado="";
-		List<Pedido> pedidos = findAll();
-		List<Integer> numeros = new ArrayList<Integer>();
-		pedidos.stream().forEach(o -> numeros.add(Integer.parseInt(o.getNumero())));
-			if(pedidos.isEmpty()) {
-				numero=1;
-			}else {
-				numero=numeros.stream().max(Integer::compare).get();
-				numero++;
-			}if(numero<10) {
-				numeroConcatenado="000000000"+String.valueOf(numero);
-			}else if (numero<100) {
-				numeroConcatenado="00000000"+String.valueOf(numero);
-			}else if (numero<1000) {
-				numeroConcatenado="0000000"+String.valueOf(numero);
-			}else if (numero<10000) {
-				numeroConcatenado="0000000"+String.valueOf(numero);
-			}
-		return numeroConcatenado;
-	}
-
 	@Override
-	public List<Pedido> findByCliente(Cliente cliente) {
-		//return IPedidoDao.findByCliente(cliente);
+	public Optional<Pedido> findById(Integer Id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Pedido> findById(Integer Id) {
-		return IPedidoDao.findById(Id);
+	public List<Pedido> findByCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

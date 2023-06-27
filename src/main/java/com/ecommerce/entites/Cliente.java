@@ -6,11 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="clientes")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
@@ -22,18 +24,23 @@ public class Cliente {
 	private Integer telefono;
 	
 	//Relacion con productos
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "cliente")
 	private List<Producto> productos;
 	
 	//Lista para relacionar ordenes o pedidos
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos;
+	
+	//Lista para relacionar usuario
+	@OneToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 	
 	public Cliente() {
 	}
 
 	public Cliente(Integer id, String nombre, String apellido, String email, String direccion, Integer telefono,
-			String usuario, String contraseña) {
+			List<Producto> productos, List<Pedido> pedidos, Usuario usuario) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -41,7 +48,12 @@ public class Cliente {
 		this.email = email;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		this.productos = productos;
+		this.pedidos = pedidos;
+		this.usuario = usuario;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -107,10 +119,19 @@ public class Cliente {
 		this.pedidos = pedidos;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
 				+ ", direccion=" + direccion + ", telefono=" + telefono + ", productos=" + productos + ", pedidos="
-				+ pedidos + "]";
+				+ pedidos + ", usuario=" + usuario + "]";
 	}
+
 }

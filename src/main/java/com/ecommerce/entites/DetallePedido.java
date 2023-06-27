@@ -14,13 +14,9 @@ public class DetallePedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nombreCli;
-	private Integer telefono;
-	private String pais;
-	private String direccionCli;
-	private double cantidad;
+	private String nombre;
+	private int cantidad;
 	private double precio;
-	private double total;
 	
 	//Relacion con pedido
 	@OneToOne
@@ -33,17 +29,12 @@ public class DetallePedido {
 	public DetallePedido() {
 	}
 
-	public DetallePedido(Integer id, String nombreCli, Integer telefono, String pais, String direccionCli,
-			double cantidad, double precio, double total) {
+	public DetallePedido(Integer id, String nombre, int cantidad, double precio) {
 		super();
 		this.id = id;
-		this.nombreCli = nombreCli;
-		this.telefono = telefono;
-		this.pais = pais;
-		this.direccionCli = direccionCli;
+		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.precio = precio;
-		this.total = total;
 	}
 
 	public Integer getId() {
@@ -54,43 +45,19 @@ public class DetallePedido {
 		this.id = id;
 	}
 
-	public String getNombreCli() {
-		return nombreCli;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombreCli(String nombreCli) {
-		this.nombreCli = nombreCli;
-	}
-
-	public Integer getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(Integer telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public String getDireccionCli() {
-		return direccionCli;
-	}
-
-	public void setDireccionCli(String direccionCli) {
-		this.direccionCli = direccionCli;
+	public void setNombreProducto(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public double getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(double cantidad) {
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -100,14 +67,6 @@ public class DetallePedido {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
-	}
-
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
 	}
 
 	public Pedido getPedido() {
@@ -128,8 +87,6 @@ public class DetallePedido {
 
 	@Override
 	public String toString() {
-		return "DetallePedido [id=" + id + ", nombreCli=" + nombreCli + ", telefono=" + telefono + ", pais=" + pais
-				+ ", direccionCli=" + direccionCli + ", cantidad=" + cantidad + ", precio=" + precio + ", total="
-				+ total + "]";
+		return "DetallePedido [id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + "]";
 	}
 }

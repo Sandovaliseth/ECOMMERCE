@@ -1,5 +1,7 @@
 package com.ecommerce.models.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,17 @@ public class DetalleServiceImpl implements IDetalleService{
 	private IDetallePedido IDetalleDao;
 
 	@Override
-	public DetallePedido save(DetallePedido detallePedido) {
-		return IDetalleDao.save(detallePedido);
+	public void save(DetallePedido detallePedido) {
+		IDetalleDao.save(detallePedido);
+	}
+
+	@Override
+	public List<DetallePedido> findAll() {
+		return IDetalleDao.findAll();
+	}
+
+	@Override
+	public void delete(Integer Id) {
+		IDetalleDao.deleteById(Id);
 	}
 }
